@@ -9,7 +9,7 @@ import utilities.ExcelUtility;
 
 public class LoginTest extends Base
 {
-	@Test(description = "Verify Whether User is able to Login Successfully with Valid Username and Valid Password",groups = ("smoke"))
+	@Test(description = "Verify Whether User is able to Login Successfully with Valid Username and Valid Password",groups = ("smoke"),retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserIsAbleLoginSuccessfullywithValidUsernameandValidPassword()
 	{
 		String userName = ExcelUtility.getString(1, 0,"LoginPage");
@@ -21,7 +21,7 @@ public class LoginTest extends Base
 		boolean isNavigatedToDashboard = loginpage.whetherDashboardTileIsDisplayed();
 		assertTrue(isNavigatedToDashboard, "User is not able to login successfully with valid username and valid password");
 	}
-	@Test(description = " Verify Whether User  is not able to Login successfully  with Valid Username and Invalid  Password",groups = ("regression"))
+	@Test(description = " Verify Whether User  is not able to Login successfully  with Valid Username and Invalid  Password",groups = ("regression"),retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserisNotAbleToLoginSuccessfullywithValidUsernameAndInvalidPassword()
 	{
 		String userName = ExcelUtility.getString(2, 0,"LoginPage");
@@ -33,7 +33,7 @@ public class LoginTest extends Base
 		boolean isNavigatedToDashboard= loginpage.whetherAlertIsDisplayed();
 		assertTrue(isNavigatedToDashboard, "User is able to login successfully with valid username and invalid password");
 	}
-	@Test(description = "Verify Whether User  is not able to Login successfully  with Invalid Username and Valid  Password",groups = ("regression"))
+	@Test(description = "Verify Whether User  is not able to Login successfully  with Invalid Username and Valid  Password",groups = ("regression"),retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserisNotAbleToLoginSuccessfullywithInvalidUsernameAndValidPassword()
 	{
 		String userName = ExcelUtility.getString(3, 0, "LoginPage");
@@ -45,7 +45,7 @@ public class LoginTest extends Base
 		boolean isNavigatedToDashboard= loginpage.whetherAlertIsDisplayed();
 		assertTrue(isNavigatedToDashboard, "User is able to login successfully  with invalid username and valid password");
 	}
-	@Test(description = "Verify Whether  User is not able to Login successfully  with Invalid Username and Invalid Password")
+	@Test(description = "Verify Whether  User is not able to Login successfully  with Invalid Username and Invalid Password",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserisNotAbleToLoginSuccessfullywithInvalidUsernameAndInvalidPassword()
 	{
 		String userName = ExcelUtility.getString(4, 0, "LoginPage");

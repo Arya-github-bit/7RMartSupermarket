@@ -9,7 +9,7 @@
     <classes>
       <class name="testscript.LoginTest">
       <methods>
-      <include name="Verify Whether User is able to Login Successfully with Valid Username and Valid Password"></include>
+      <include name="verifyWhetherUserIsAbleLoginSuccessfullywithValidUsernameandValidPassword"></include>
       </methods>
       </class>
     </classes>

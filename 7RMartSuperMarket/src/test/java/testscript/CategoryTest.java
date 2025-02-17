@@ -10,7 +10,7 @@ import utilities.ExcelUtility;
 
 public class CategoryTest extends Base
 {
-	@Test(description = " Verify whether user is able to search Category on Category Page")
+	@Test(description = " Verify whether user is able to search Category on Category Page",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserisAbleToSearchCategoryOnCategoryPageSuccessfully()
 	{
 		String userName= ExcelUtility.getString(1, 0, "CategoryPage"); 
@@ -29,7 +29,7 @@ public class CategoryTest extends Base
 		 String actualResult=categoryPage.getSearchResult();
 		 assertEquals(searchCategoryName, actualResult," Correct Search Result is not displayed");
 	}
-	@Test(description = " Verify whether user is able to DeleteS Category on Category Page")
+	@Test(description = " Verify whether user is able to DeleteS Category on Category Page",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserisAbleToDeleteCategoryOnCategoryPageSuccessfully()
 	{
 		String userName= ExcelUtility.getString(1, 0, "CategoryPage"); 

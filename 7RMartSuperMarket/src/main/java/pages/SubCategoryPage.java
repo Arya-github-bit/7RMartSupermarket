@@ -50,11 +50,10 @@ public class SubCategoryPage
 	 PageUtility pageUtility = new PageUtility();
 	 pageUtility.selectFromDropDownUsingIndex(selectCategoryDropDown, 1);
 	}
-	public void selectSubCategory()
+	public void selectSubCategory(String subcategory)
 	{
-		RandomUtility randomUtility = new RandomUtility();
-		String subCategoryName =randomUtility.fakerFood();
-		subCategoryTextBox.sendKeys(subCategoryName);
+	 
+		subCategoryTextBox.sendKeys(subcategory);
 	}
 	public void uploadFile()
 	{
@@ -77,7 +76,7 @@ public class SubCategoryPage
 	public void selectCategory1()
 	{
 		PageUtility pageUtility= new PageUtility();
-		pageUtility.selectFromDropDownUsingIndex(selectCategory, 1);
+		pageUtility.selectFromDropDownUsingIndex(selectCategory, 2);
 	}
 	public void selectSubCategory1(String searchText)
 	{

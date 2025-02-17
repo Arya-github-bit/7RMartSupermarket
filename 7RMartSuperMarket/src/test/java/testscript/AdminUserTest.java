@@ -10,7 +10,8 @@ import utilities.ExcelUtility;
 
 public class AdminUserTest extends Base
 {
-	@Test(description = " Verify Whether admin is able to add new User on AdminUser Page")
+	//@Test (description = "check the user can create a new category" , retryAnalyzer = Retry.class)
+	@Test(description = " Verify Whether admin is able to add new User on AdminUser Page",retryAnalyzer = retry.Retry.class)
 	public void verifyAddingNewUserOnAdminUserPage()
 	{
 		String userName= ExcelUtility.getString(1, 0, "AdminUserPage");
@@ -33,7 +34,7 @@ public class AdminUserTest extends Base
 
 
 	}
-	@Test(description = "Verify Search Button on AdminUser Page ")
+	@Test(description = "Verify Search Button on AdminUser Page ",retryAnalyzer = retry.Retry.class)
 	public void verifySearchUserOnAdminUserPage()
 	{
 		String userName =ExcelUtility.getString(1, 0, "AdminUserPage");
@@ -51,7 +52,7 @@ public class AdminUserTest extends Base
 		String actualResult=adminUserPage.getSearchResult();
 		assertEquals(actualResult, searchUserName,"Correct Search result is not displayed");
 	}
-	@Test(description = "Verify whether Admin is able to change status of user successfully ")
+	@Test(description = "Verify whether Admin is able to change status of user successfully ",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherAdminisAbleToChangeStatusofUser()
 	{String userName=ExcelUtility.getString(1, 0, "AdminUserPage");
 	String password=ExcelUtility.getString(1, 1, "AdminUserPage");
@@ -67,7 +68,7 @@ public class AdminUserTest extends Base
 	String actualStatusAlertMessage=actualStatusAlertText.substring(9);
 	assertEquals(actualStatusAlertMessage, expectedStatusAlertMessage,"Admin is not able to change status on User");	
 	}
-	@Test(description = "Verify whether admin is able to Update Password of User Successfully")
+	@Test(description = "Verify whether admin is able to Update Password of User Successfully",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherAdminisAbletoUpdatePasswordoftheUser()
 	{
 		String userName=ExcelUtility.getString(1, 0, "AdminUserPage");

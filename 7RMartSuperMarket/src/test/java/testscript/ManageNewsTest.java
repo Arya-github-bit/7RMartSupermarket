@@ -10,7 +10,7 @@ import utilities.ExcelUtility;
 
 public class ManageNewsTest extends Base
 {
-	@Test(description = " Verify whether user is able to add New on ManageNews Page")
+	@Test(description = " Verify whether user is able to add New on ManageNews Page",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserisableUpdateNewNewsonManageNewsPage()
 	{
 		String expectedAlertText= ExcelUtility.getString(1, 2, "ManageNewsPage"); 

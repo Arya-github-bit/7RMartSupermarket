@@ -10,7 +10,7 @@ import utilities.ExcelUtility;
 
 public class SubCategoryTest extends Base
 {
-	@Test(description = "Verify whether user is able to add new subcaegory on sub category Page")
+	@Test(description = "Verify whether user is able to add new subcaegory on sub category Page",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherAdminisableToAddNewSubCategoryOnListSubcategoryPage()
 	{   String expectedAlert= ExcelUtility.getString(1, 3, "SubCategoryPage");  
 	String userName = ExcelUtility.getString(1, 0, "SubCategoryPage");
@@ -24,13 +24,14 @@ public class SubCategoryTest extends Base
 	subCategoryPage.clickOnSubCategoryTile();
 	subCategoryPage.clickOnNewButton();
 	subCategoryPage.selectCategory();
-	subCategoryPage.selectSubCategory();
+	subCategoryPage.selectSubCategory(subcategory);
 	subCategoryPage.uploadFile();
 	String actualalert = subCategoryPage.getAlertText();
 	assertEquals(actualalert, expectedAlert,"Sub Category is not created Successfully");
 
 
 	}
+	@Test(description = "Verify whether user is able to search subcaegory on sub category Page",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserisAbleToSearchSubcategoryOnCategoryPageSuccessfully()
 	{
 		String userName = ExcelUtility.getString(1, 0, "SubCategoryPage");
@@ -48,5 +49,7 @@ public class SubCategoryTest extends Base
 		String actualSearchResult =subCategoryPage.getSearchResult();
 		assertEquals(actualSearchResult, subcategory,"Coreect Search Result is not displayed");
 	}
+	
+
 
 }
