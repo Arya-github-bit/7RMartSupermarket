@@ -19,7 +19,8 @@ public class CategoryPage
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[1]//td[1]")WebElement table;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")WebElement newButton;
 	@FindBy(xpath = "//input[@placeholder='Enter the Category']")WebElement enterCategoryTextBox;
-	
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/category/delete?del=1055&page_ad=1']//child::i")WebElement deleteButton;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")WebElement deleteAlertBox;
 
 	public void navigateToCategoryPage(String url)
 	{
@@ -45,5 +46,14 @@ public class CategoryPage
 	public void clickOnNewButton() 
 	{
 		newButton.click();
+	}
+	public void clickOnDeleteButton()
+	{
+		deleteButton.click();
+	}
+	public String getTextDeletedAlert()
+	{
+		String alertMessage = deleteAlertBox.getText();
+		return alertMessage;
 	}
 }

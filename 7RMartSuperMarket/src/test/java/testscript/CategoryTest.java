@@ -29,6 +29,25 @@ public class CategoryTest extends Base
 		 String actualResult=categoryPage.getSearchResult();
 		 assertEquals(searchCategoryName, actualResult," Correct Search Result is not displayed");
 	}
+	@Test(description = " Verify whether user is able to DeleteS Category on Category Page")
+	public void verifyWhetherUserisAbleToDeleteCategoryOnCategoryPageSuccessfully()
+	{
+		String userName= ExcelUtility.getString(1, 0, "CategoryPage"); 
+		String password = ExcelUtility.getString(1, 1, "CategoryPage");
+		String url = ExcelUtility.getString(1, 2, "CategoryPage");
+		String expectedAlertMessage =ExcelUtility.getString(1, 4, "CategoryPage");
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.enterUseNameonUserNameField(userName);
+		loginPage.enterPasswordOnPasswordField(password);
+		loginPage.clickOnSigninButton();
+		CategoryPage categoryPage = new CategoryPage(driver);
+		categoryPage.navigateToCategoryPage(url);
+		categoryPage.clickOnDeleteButton();
+		String actualAlertMessage =categoryPage.getTextDeletedAlert();
+		assertEquals(actualAlertMessage, expectedAlertMessage,"Admin is not able to Delete Category on Category page successfully");
+		
+	}
+	
 
 	
 }

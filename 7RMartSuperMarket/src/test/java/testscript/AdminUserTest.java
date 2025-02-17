@@ -15,7 +15,7 @@ public class AdminUserTest extends Base
 	{
 		String userName= ExcelUtility.getString(1, 0, "AdminUserPage");
 		String password =ExcelUtility.getString(1, 1, "AdminUserPage");
-		String expectedAlertMessage =ExcelUtility.getString(1, 2, "AdminUserPage");;
+		String expectedAlertMessage =ExcelUtility.getString(1, 2, "AdminUserPage");
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.enterUseNameonUserNameField(userName);
 		loginPage.enterPasswordOnPasswordField(password);
