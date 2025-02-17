@@ -1,22 +1,25 @@
 package testscript;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
+import utilities.ScreenshotUtility;
 import utilities.WaitUtility;
 
 public class Base
 {
 	public WebDriver driver;
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun =true)
 	@Parameters("browser")
 	public void initialiseBrowser(String browser) throws Exception
 	{
@@ -43,11 +46,16 @@ public class Base
 		driver.manage().window().maximize();
 	}
 	
-	@AfterMethod
-	public void browserQuit()
-	{
-		driver.close();
+	@AfterMethod(alwaysRun =true)
+	public void browserQuit(ITestResult iTestResult) throws IOException {
+		if (iTestResult.getStatus() == ITestResult.FAILURE) {
+			ScreenshotUtility screenshort = new ScreenshotUtility();
+			screenshort.getScreenShot(driver, iTestResult.getName());
+		}
+		
+		driver.quit();
 	}
+
 
 	
 }

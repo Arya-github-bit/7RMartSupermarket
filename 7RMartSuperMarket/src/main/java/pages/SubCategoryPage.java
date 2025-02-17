@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import constants.Constant;
 import utilities.FileUploadUtility;
 import utilities.PageUtility;
 import utilities.RandomUtility;
@@ -58,7 +59,7 @@ public class SubCategoryPage
 	public void uploadFile()
 	{
 		FileUploadUtility fileUploadUtility = new FileUploadUtility();
-		fileUploadUtility.fileUploadUsingSendKeys(chooseFileButton, "D:\\D drive\\Software testing\\AUTOMATION TESTING\\Automation class notes\\DryFruits.jpg");
+		fileUploadUtility.fileUploadUsingSendKeys(chooseFileButton,Constant.TOYIMG);
 		saveButton.click();
 		
 	}
