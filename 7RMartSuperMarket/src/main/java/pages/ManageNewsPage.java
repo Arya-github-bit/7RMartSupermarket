@@ -22,25 +22,28 @@ public class ManageNewsPage
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")WebElement alertBox;
 	
 	
-	public void clickOnManageNewsTile(String url)
+	public ManageNewsPage clickOnManageNewsTile(String url)
 	{
 		
 		driver.navigate().to(url);
+		return this;
 	}
-	public void clickOnNewButton()
+	public ManageNewsPage clickOnNewButton()
 	{
 		 WaitUtility waitUtility= new WaitUtility();
 		 waitUtility.waitUntilElementToBeClickable(driver, newButton);
 		newButton.click();
+		return this;
 	}
-	public void updateNews( String news)
+	public ManageNewsPage updateNews( String news)
 	{
 		textbox.clear();
 		textbox.sendKeys(news);
-		
+		return this;
 	}
-	public void clickOnSaveButton() {
+	public ManageNewsPage clickOnSaveButton() {
 		saveButton.click();
+		return this;
 	}
 
 	public String getAlertText()

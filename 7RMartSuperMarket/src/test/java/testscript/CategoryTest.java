@@ -18,14 +18,9 @@ public class CategoryTest extends Base
 		String url = ExcelUtility.getString(1, 2, "CategoryPage");
 		String searchCategoryName= ExcelUtility.getString(1, 3, "CategoryPage");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUseNameonUserNameField(userName);
-		loginPage.enterPasswordOnPasswordField(password);
-		loginPage.clickOnSigninButton();
+		loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton();
 		CategoryPage categoryPage = new CategoryPage(driver);
-		categoryPage.navigateToCategoryPage(url);
-		categoryPage.clickOnSearchButton();
-		categoryPage.enterText(searchCategoryName);
-		categoryPage.clickOnSearchButtonInSearchPage();
+		categoryPage.navigateToCategoryPage(url).clickOnSearchButton().enterText(searchCategoryName).clickOnSearchButtonInSearchPage();
 		 String actualResult=categoryPage.getSearchResult();
 		 assertEquals(searchCategoryName, actualResult," Correct Search Result is not displayed");
 	}
@@ -37,12 +32,9 @@ public class CategoryTest extends Base
 		String url = ExcelUtility.getString(1, 2, "CategoryPage");
 		String expectedAlertMessage =ExcelUtility.getString(1, 4, "CategoryPage");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUseNameonUserNameField(userName);
-		loginPage.enterPasswordOnPasswordField(password);
-		loginPage.clickOnSigninButton();
+		loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton();
 		CategoryPage categoryPage = new CategoryPage(driver);
-		categoryPage.navigateToCategoryPage(url);
-		categoryPage.clickOnDeleteButton();
+		categoryPage.navigateToCategoryPage(url).clickOnDeleteButton();
 		String actualAlertMessage =categoryPage.getTextDeletedAlert();
 		assertEquals(actualAlertMessage, expectedAlertMessage,"Admin is not able to Delete Category on Category page successfully");
 		

@@ -17,15 +17,9 @@ public class SubCategoryTest extends Base
 	String password = ExcelUtility.getString(1, 1, "SubCategoryPage");
 	String subcategory= ExcelUtility.getString(1, 2, "SubCategoryPage");
 	LoginPage loginPage =new LoginPage(driver);
-	loginPage.enterUseNameonUserNameField(userName);
-	loginPage.enterPasswordOnPasswordField(password);
-	loginPage.clickOnSigninButton();
+	loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton();
 	SubCategoryPage subCategoryPage =  new SubCategoryPage(driver);
-	subCategoryPage.clickOnSubCategoryTile();
-	subCategoryPage.clickOnNewButton();
-	subCategoryPage.selectCategory();
-	subCategoryPage.selectSubCategory(subcategory);
-	subCategoryPage.uploadFile();
+	subCategoryPage.clickOnSubCategoryTile().clickOnNewButton().selectCategory().selectSubCategory(subcategory).uploadFile();
 	String actualalert = subCategoryPage.getAlertText();
 	assertEquals(actualalert, expectedAlert,"Sub Category is not created Successfully");
 
@@ -38,14 +32,9 @@ public class SubCategoryTest extends Base
 		String password = ExcelUtility.getString(1, 1, "SubCategoryPage");
 		String subcategory = ExcelUtility.getString(1,2 , "SubCategoryPage");
 		LoginPage loginPage =new LoginPage(driver);
-		loginPage.enterUseNameonUserNameField(userName);
-		loginPage.enterPasswordOnPasswordField(password);
-		loginPage.clickOnSigninButton();
+		loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton();
 		SubCategoryPage subCategoryPage =  new SubCategoryPage(driver);
-		subCategoryPage.clickOnSearchButton();
-		subCategoryPage.selectCategory1();
-		subCategoryPage.selectSubCategory1(subcategory);
-		subCategoryPage.searchOnSubCategoryPage();
+		subCategoryPage.clickOnSearchButton().selectCategory1().selectSubCategory1(subcategory).searchOnSubCategoryPage();
 		String actualSearchResult =subCategoryPage.getSearchResult();
 		assertEquals(actualSearchResult, subcategory,"Coreect Search Result is not displayed");
 	}

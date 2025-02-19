@@ -22,34 +22,40 @@ public class CategoryPage
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/category/delete?del=1055&page_ad=1']//child::i")WebElement deleteButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")WebElement deleteAlertBox;
 
-	public void navigateToCategoryPage(String url)
+	public CategoryPage navigateToCategoryPage(String url)
 	{
 		driver.navigate().to(url);
+		return this;
 	}
-	public void clickOnSearchButton()
+	public CategoryPage clickOnSearchButton()
 	{
 		searchButton.click();
+		return this;
 	}
-	public void enterText(String searchText)
+	public CategoryPage enterText(String searchText)
 	{
 		searchTextBox.sendKeys(searchText);
+		return this;
 	}
-	public void clickOnSearchButtonInSearchPage()
+	public CategoryPage clickOnSearchButtonInSearchPage()
 	{
 		searchButtonInSearchPage.click();
+		return this;
 	}
 	public String getSearchResult() 
 	{
 		String searchCategory = table.getText();
 		return searchCategory;
 	}
-	public void clickOnNewButton() 
+	public CategoryPage clickOnNewButton() 
 	{
 		newButton.click();
+		return this;
 	}
-	public void clickOnDeleteButton()
+	public CategoryPage clickOnDeleteButton()
 	{
 		deleteButton.click();
+		return this;
 	}
 	public String getTextDeletedAlert()
 	{

@@ -20,28 +20,33 @@ public class LoginPage
 	@FindBy( xpath ="//input[@placeholder='Username']")WebElement userNameField;
 	@FindBy(xpath = "//input[@type='password']") WebElement passwordField;
 	@FindBy(xpath = "//button[text()='Sign In']") WebElement signInButton;
-	@FindBy(xpath = "//div[@class='inner']//child::p[text ()='Dashboard']")WebElement dashBoardTile;
+	@FindBy(xpath = "//ol[@class='breadcrumb float-sm-right']//child::li[@class='breadcrumb-item active']")WebElement dashBoardText;
 	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']") WebElement alert;
 
 
-	public void enterUseNameonUserNameField(String userName)
+	public LoginPage enterUseNameonUserNameField(String userName)
 	{
 		userNameField.sendKeys(userName);
+		return this;
 	}
-	public void enterPasswordOnPasswordField(String password)
+	public LoginPage enterPasswordOnPasswordField(String password)
 	{
 		passwordField.sendKeys(password);
+		return this;
 	}
-	public void clickOnSigninButton()
+	public LoginPage clickOnSigninButton()
 	{
 		 WaitUtility waitUtility= new WaitUtility();
 		 waitUtility.waitUntilElementToBeClickable(driver, signInButton);
 		signInButton.click();
+		return this;
 	}
 	public boolean whetherDashboardTileIsDisplayed ()
 	{
-		boolean dashBoardTileDisplay =dashBoardTile.isDisplayed();
-		return dashBoardTileDisplay;
+		Boolean dashBoardDisplay =dashBoardText.isDisplayed();
+		WaitUtility wait = new WaitUtility();
+		wait.waitUntilElementToBePresentInElement(driver, dashBoardText,"Dashboard");
+		return dashBoardDisplay;
 
 	}
 	public boolean whetherAlertIsDisplayed()

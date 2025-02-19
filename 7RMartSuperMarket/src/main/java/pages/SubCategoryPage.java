@@ -35,31 +35,36 @@ public class SubCategoryPage
 	
 	
 	
-	public void clickOnSubCategoryTile()
+	public SubCategoryPage clickOnSubCategoryTile()
 	{
 		subCategoryTile.click();
+		return this;
 	}
-	public void clickOnNewButton()
+	public SubCategoryPage clickOnNewButton()
 	{
 		 WaitUtility waitUtility= new WaitUtility();
 		 waitUtility.waitUntilElementToBeClickable(driver, newButton);
 		newButton.click();
+		return this;
 	}
-	public void selectCategory()
+	public SubCategoryPage selectCategory()
 	{
 	 PageUtility pageUtility = new PageUtility();
 	 pageUtility.selectFromDropDownUsingIndex(selectCategoryDropDown, 1);
+	 return this;
 	}
-	public void selectSubCategory(String subcategory)
+	public SubCategoryPage selectSubCategory(String subcategory)
 	{
 	 
 		subCategoryTextBox.sendKeys(subcategory);
+		return this;
 	}
-	public void uploadFile()
+	public SubCategoryPage uploadFile()
 	{
 		FileUploadUtility fileUploadUtility = new FileUploadUtility();
 		fileUploadUtility.fileUploadUsingSendKeys(chooseFileButton,Constant.TOYIMG);
 		saveButton.click();
+		return this;
 		
 	}
 	public String getAlertText()
@@ -67,25 +72,29 @@ public class SubCategoryPage
 		String alertMessage =alertBox.getText();
 		return alertMessage;
 	}
-	public void clickOnSearchButton()
+	public SubCategoryPage clickOnSearchButton()
 	{
 		WaitUtility waitUtility= new WaitUtility();
 		waitUtility.waitUntillelementToBeClickableUsingFluentWait(driver, searchButton);
 		searchButton.click();
+		return this;
 	}
-	public void selectCategory1()
+	public SubCategoryPage selectCategory1()
 	{
 		PageUtility pageUtility= new PageUtility();
 		pageUtility.selectFromDropDownUsingIndex(selectCategory, 2);
+		return this;
 	}
-	public void selectSubCategory1(String searchText)
+	public SubCategoryPage selectSubCategory1(String searchText)
 	{
 		
 		selectSubCategory.sendKeys(searchText);
+		return this;
 	}
-	public void searchOnSubCategoryPage()
+	public SubCategoryPage searchOnSubCategoryPage()
 	{
 		searchONSubCAtegoryPage.click();
+		return this;
 	}
 	public String getSearchResult()
 	{

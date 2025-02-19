@@ -21,7 +21,7 @@ public class PageUtility
 	public void selectFdromDropDownUsingVisibleText(WebElement element,String visibleText)
 	{
 		Select select = new Select(element);
-		select.selectByContainsVisibleText(visibleText);
+		select.selectByVisibleText(visibleText);
 	}
 	public void toMoveanElement( WebDriver driver,WebElement element)
 	{

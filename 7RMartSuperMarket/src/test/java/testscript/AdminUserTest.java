@@ -8,6 +8,7 @@ import pages.AdminUserPage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
+
 public class AdminUserTest extends Base
 {
 	//@Test (description = "check the user can create a new category" , retryAnalyzer = Retry.class)
@@ -18,16 +19,9 @@ public class AdminUserTest extends Base
 		String password =ExcelUtility.getString(1, 1, "AdminUserPage");
 		String expectedAlertMessage =ExcelUtility.getString(1, 2, "AdminUserPage");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUseNameonUserNameField(userName);
-		loginPage.enterPasswordOnPasswordField(password);
-		loginPage.clickOnSigninButton();
+		loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton();
 		AdminUserPage adminUserPage = new AdminUserPage(driver);
-		adminUserPage.clickOnAdminUserTile();	
-		adminUserPage.clickOnNewButton();
-		adminUserPage.enterUserNameOfNewUser();
-		adminUserPage.enterNewUserPassword();
-		adminUserPage.selectUserType();
-		adminUserPage.clickOnSaveButton();
+		adminUserPage.clickOnAdminUserTile().clickOnNewButton().enterUserNameOfNewUser().enterNewUserPassword().selectUserType().clickOnSaveButton();	
 		String actual= adminUserPage.isalertforCreatingNewdisplayed();
 		String actualAlertMessage=actual.substring(9);
 		assertEquals(expectedAlertMessage, actualAlertMessage,"Admin is not able to add New User on AdminUser page successfully");
@@ -41,14 +35,9 @@ public class AdminUserTest extends Base
 		String password =ExcelUtility.getString(1, 1, "AdminUserPage");
 		String searchUserName=ExcelUtility.getString(1, 3, "AdminUserPage");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUseNameonUserNameField(userName);
-		loginPage.enterPasswordOnPasswordField(password);
-		loginPage.clickOnSigninButton();
+		loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton();
 		AdminUserPage adminUserPage = new AdminUserPage(driver);
-		adminUserPage.clickOnAdminUserTile();	
-		adminUserPage.clickOnSearchButton1();
-		adminUserPage.enterUserNameInSearchField(searchUserName);
-		adminUserPage.clickOnSearchButton();
+		adminUserPage.clickOnAdminUserTile().clickOnSearchButton1().enterUserNameInSearchField(searchUserName).clickOnSearchButton();	
 		String actualResult=adminUserPage.getSearchResult();
 		assertEquals(actualResult, searchUserName,"Correct Search result is not displayed");
 	}
@@ -58,12 +47,9 @@ public class AdminUserTest extends Base
 	String password=ExcelUtility.getString(1, 1, "AdminUserPage");
 	String expectedStatusAlertMessage=ExcelUtility.getString(2, 2, "AdminUserPage");
 	LoginPage loginPage = new LoginPage(driver);
-	loginPage.enterUseNameonUserNameField(userName);
-	loginPage.enterPasswordOnPasswordField(password);
-	loginPage.clickOnSigninButton();
+	loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton();
 	AdminUserPage adminUserPage = new AdminUserPage(driver);
-	adminUserPage.clickOnAdminUserTile();	
-	adminUserPage.clickOnStatusButton();
+	adminUserPage.clickOnAdminUserTile().clickOnStatusButton();	
 	String actualStatusAlertText = adminUserPage.isAlertforUserStatusChangeDisplayed();
 	String actualStatusAlertMessage=actualStatusAlertText.substring(9);
 	assertEquals(actualStatusAlertMessage, expectedStatusAlertMessage,"Admin is not able to change status on User");	
@@ -75,16 +61,11 @@ public class AdminUserTest extends Base
 		String password =ExcelUtility.getString(1, 1, "AdminUserPage");
 		String ExpectedUpdateAlertMessage=ExcelUtility.getString(3, 2, "AdminUserPage");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUseNameonUserNameField(userName);
-		loginPage.enterPasswordOnPasswordField(password);
-		loginPage.clickOnSigninButton();
+		loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton();
 		AdminUserPage adminUserPage = new AdminUserPage(driver);
-		adminUserPage.clickOnAdminUserTile();
-		adminUserPage.clickOnEditButton();
-		//adminUserPage.editPassword();
-		//adminUserPage.clickOnUpdateButton();
-		//String actualUpdateAlertMessage = adminUserPage.alertForUserUpdatedSuccessfully();
-		//assertEquals(actualUpdateAlertMessage, ExpectedUpdateAlertMessage,"Admin is not able to Update Password of User Successfully");
+		adminUserPage.clickOnAdminUserTile().clickOnEditButton().editPassword().clickOnUpdateButton();
+		String actualUpdateAlertMessage = adminUserPage.alertForUserUpdatedSuccessfully();
+		assertEquals(actualUpdateAlertMessage, ExpectedUpdateAlertMessage,"Admin is not able to Update Password of User Successfully");
 		
 	}
 

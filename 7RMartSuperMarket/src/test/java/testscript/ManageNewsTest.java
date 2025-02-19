@@ -19,14 +19,9 @@ public class ManageNewsTest extends Base
 		String url= ExcelUtility.getString(1, 3, "ManageNewsPage");
 		String news= ExcelUtility.getString(1, 4, "ManageNewsPage");
 		LoginPage loginPage =new LoginPage(driver);
-		loginPage.enterUseNameonUserNameField(userName);
-		loginPage.enterPasswordOnPasswordField(password);
-		loginPage.clickOnSigninButton();
+		loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton();
 		ManageNewsPage manageNewsPage= new ManageNewsPage(driver);
-		manageNewsPage.clickOnManageNewsTile(url);
-		manageNewsPage.clickOnNewButton();
-		manageNewsPage.updateNews(news);
-		manageNewsPage.clickOnSaveButton();
+		manageNewsPage.clickOnManageNewsTile(url).clickOnNewButton().updateNews(news).clickOnSaveButton();
 	    String actualAlertText =manageNewsPage.getAlertText();
 		assertEquals(expectedAlertText,actualAlertText,"Admin is not able to add new on Managenews Page ");
 			

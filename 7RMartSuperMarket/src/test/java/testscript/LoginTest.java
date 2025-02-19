@@ -2,10 +2,12 @@ package testscript;
 
 import static org.testng.Assert.assertTrue;
 
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
 import utilities.ExcelUtility;
+import utilities.WaitUtility;
 
 public class LoginTest extends Base
 {
@@ -15,9 +17,7 @@ public class LoginTest extends Base
 		String userName = ExcelUtility.getString(1, 0,"LoginPage");
 		String Password = ExcelUtility.getString(1, 1,"LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUseNameonUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password);
-		loginpage.clickOnSigninButton();
+		loginpage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnSigninButton();
 		boolean isNavigatedToDashboard = loginpage.whetherDashboardTileIsDisplayed();
 		assertTrue(isNavigatedToDashboard, "User is not able to login successfully with valid username and valid password");
 	}
@@ -27,9 +27,7 @@ public class LoginTest extends Base
 		String userName = ExcelUtility.getString(2, 0,"LoginPage");
 		String Password = ExcelUtility.getString(2, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUseNameonUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password);
-		loginpage.clickOnSigninButton();
+		loginpage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnSigninButton();
 		boolean isNavigatedToDashboard= loginpage.whetherAlertIsDisplayed();
 		assertTrue(isNavigatedToDashboard, "User is able to login successfully with valid username and invalid password");
 	}
@@ -39,9 +37,7 @@ public class LoginTest extends Base
 		String userName = ExcelUtility.getString(3, 0, "LoginPage");
 		String Password = ExcelUtility.getString(3, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUseNameonUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password);
-		loginpage.clickOnSigninButton();
+		loginpage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnSigninButton();
 		boolean isNavigatedToDashboard= loginpage.whetherAlertIsDisplayed();
 		assertTrue(isNavigatedToDashboard, "User is able to login successfully  with invalid username and valid password");
 	}
@@ -51,9 +47,7 @@ public class LoginTest extends Base
 		String userName = ExcelUtility.getString(4, 0, "LoginPage");
 		String Password = ExcelUtility.getString(4, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUseNameonUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password);
-		loginpage.clickOnSigninButton();
+		loginpage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnSigninButton();
 		boolean isNavigatedToDashboard= loginpage.whetherAlertIsDisplayed();
 		assertTrue(isNavigatedToDashboard, "User is able to login successfully with invalid username and invalid password");
 	}

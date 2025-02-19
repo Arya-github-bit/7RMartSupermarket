@@ -42,99 +42,115 @@ public class AdminUserPage
 @FindBy(xpath = "//button[@name='Update']")WebElement updateButton;
 @FindBy(xpath ="//div[@class='alert alert-success alert-dismissible']")WebElement updateAlertBox;
 
-	public void clickOnAdminUserTile()
+	public AdminUserPage clickOnAdminUserTile()
 	{
 		adminUsersTile.click();
+		return this;
 	}
-	public void clickOnNewButton()
+	public AdminUserPage clickOnNewButton()
 	{
 		newButton.click();
+		return this;
 	}
-	public void enterUserNameOfNewUser()
+	public AdminUserPage  enterUserNameOfNewUser()
 	{
 		RandomUtility randomUtility = new RandomUtility();
 		String newUserName =randomUtility.fakerUserName();
 		newUserUserNameField.sendKeys(newUserName);
+		return this;
 		
 
 	}
-	public void enterNewUserPassword()
+	public AdminUserPage enterNewUserPassword()
 	{
 		RandomUtility randomUtility = new RandomUtility();
 		String newUserPassword = randomUtility.fakerpassword();
 		newUserPasswordField.sendKeys(newUserPassword);
+		return this;
 	}
-	public void selectUserType()
+	public AdminUserPage selectUserType()
 	{ 
 		PageUtility pageUtility =new PageUtility();
 		pageUtility.selectFromDropDownUsingIndex(newUserSelectDropdown, 1);
+		return this;
 
 	}
-	public void clickOnSaveButton()
+	public AdminUserPage clickOnSaveButton()
 	{
 		 WaitUtility waitUtility= new WaitUtility();
 		 waitUtility.waitUntilElementToBeClickable(driver, saveButton);
 		saveButton.click();
+		return this;
 	}
 	public String isalertforCreatingNewdisplayed()
 	{
 		String alertmessage= newUserAlertBox.getText();
 		return alertmessage;
+
 	}
 
 
-	public void clickOnSearchButton1()
+	public AdminUserPage clickOnSearchButton1()
 	{
 		WaitUtility waitUtility =new WaitUtility();
 		waitUtility.waitUntillelementToBeClickableUsingFluentWait(driver, searchButton1);
 		searchButton1.click();
+		return this;
 	}
-	public void enterUserNameInSearchField(String searchUserName)
+	public   AdminUserPage enterUserNameInSearchField(String searchUserName)
 	{
 		searchUserNameField.sendKeys(searchUserName);
+		return this;
 	}
-	public void selectDropdownInSearch(int index)
+	public AdminUserPage selectDropdownInSearch(int index)
 	{
 		PageUtility pageUtility = new PageUtility();
 		pageUtility.selectFromDropDownUsingIndex(newUserSelectDropdown,index);
+		return this;
 	}
-	public void clickOnSearchButton()
+	public AdminUserPage clickOnSearchButton()
 	{
 		searchButton.click();
+		return this;
 	}
 	public String getSearchResult()
 	{
 		String searchUserName = table.getText();
 		return searchUserName;
 	}
-	public void clickOnStatusButton() 
+	public AdminUserPage clickOnStatusButton() 
 	{
 		statusButton.click();
+		return this;
 		
 	}
 	public String isAlertforUserStatusChangeDisplayed()
 	{
 		String alerMessage = statusAlerBox.getText();
 		return alerMessage;
+	
 	}
-	public void clickOnEditButton() 
+	public AdminUserPage clickOnEditButton() 
 	{
 		WaitUtility waitUtility=new WaitUtility();
 		waitUtility.waitUntilElementToBeClickable(driver, editButton);
 		editButton.click();
+		return this;
 	}
 	
-	public void editPassword()
+	public AdminUserPage editPassword()
 	{
 		passwordEditTextBox.clear();
 		RandomUtility randomUtility=  new RandomUtility();
 		String newPassword = randomUtility.fakerpassword();
 		passwordEditTextBox.sendKeys(newPassword);
+		return this;
 		
 	}
-	public void clickOnUpdateButton()
+	public AdminUserPage clickOnUpdateButton()
 	{
 		updateButton.click();
+		return this;
 	}
 	public String alertForUserUpdatedSuccessfully()
 	{
