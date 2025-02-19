@@ -7,13 +7,13 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testscript.LoginTest">
+      <class name="testscript.SubCategoryTest">
         <methods>
+          <include name="verifyWhetherAdminisableToAddNewSubCategoryOnListSubcategoryPage"/>
           <include name="initialiseBrowser"/>
           <include name="browserQuit"/>
-          <include name="verifyWhetherUserIsAbleLoginSuccessfullywithValidUsernameandValidPassword"/>
         </methods>
-      </class> <!-- testscript.LoginTest -->
+      </class> <!-- testscript.SubCategoryTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

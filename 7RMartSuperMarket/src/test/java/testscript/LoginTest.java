@@ -11,7 +11,7 @@ import utilities.WaitUtility;
 
 public class LoginTest extends Base
 {
-	@Test(description = "Verify Whether User is able to Login Successfully with Valid Username and Valid Password",groups = ("smoke"),retryAnalyzer = retry.Retry.class)
+	@Test(description = "Verify Whether User is able to Login Successfully with Valid Username and Valid Password",groups = ("smoke"),retryAnalyzer=retry.Retry.class)
 	public void verifyWhetherUserIsAbleLoginSuccessfullywithValidUsernameandValidPassword()
 	{
 		String userName = ExcelUtility.getString(1, 0,"LoginPage");

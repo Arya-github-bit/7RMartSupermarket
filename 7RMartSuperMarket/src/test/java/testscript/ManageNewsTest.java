@@ -10,6 +10,8 @@ import utilities.ExcelUtility;
 
 public class ManageNewsTest extends Base
 {
+	LoginPage loginPage;
+	ManageNewsPage manageNewsPage;
 	@Test(description = " Verify whether user is able to add New on ManageNews Page",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserisableUpdateNewNewsonManageNewsPage()
 	{
@@ -18,10 +20,8 @@ public class ManageNewsTest extends Base
 		String password = ExcelUtility.getString(1, 1, "ManageNewsPage");
 		String url= ExcelUtility.getString(1, 3, "ManageNewsPage");
 		String news= ExcelUtility.getString(1, 4, "ManageNewsPage");
-		LoginPage loginPage =new LoginPage(driver);
-		loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton();
-		ManageNewsPage manageNewsPage= new ManageNewsPage(driver);
-		manageNewsPage.clickOnManageNewsTile(url).clickOnNewButton().updateNews(news).clickOnSaveButton();
+		loginPage =new LoginPage(driver);
+		manageNewsPage=loginPage.enterUseNameonUserNameField(userName).enterPasswordOnPasswordField(password).clickOnSigninButton().clickOnManageNewsTile(url).clickOnNewButton().updateNews(news).clickOnSaveButton();
 	    String actualAlertText =manageNewsPage.getAlertText();
 		assertEquals(expectedAlertText,actualAlertText,"Admin is not able to add new on Managenews Page ");
 			

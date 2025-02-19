@@ -34,12 +34,12 @@ public class LoginPage
 		passwordField.sendKeys(password);
 		return this;
 	}
-	public LoginPage clickOnSigninButton()
+	public ManageNewsPage clickOnSigninButton()
 	{
-		 WaitUtility waitUtility= new WaitUtility();
-		 waitUtility.waitUntilElementToBeClickable(driver, signInButton);
+		WaitUtility waitUtility= new WaitUtility();
+		waitUtility.waitUntilElementToBeClickable(driver, signInButton);
 		signInButton.click();
-		return this;
+		return new ManageNewsPage(driver);
 	}
 	public boolean whetherDashboardTileIsDisplayed ()
 	{

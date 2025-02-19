@@ -36,11 +36,11 @@ public class AdminUserPage
 	@FindBy(xpath = "//button[@name='Search']")WebElement searchButton;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[1]//td[1]")WebElement table;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/user/status?id=11753&st=inactive&page_ad=1']//child::i[@class='fa fa-unlock']")WebElement statusButton;
-@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")WebElement statusAlerBox;
-@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/user/edit?edit=11753&page_ad=1']//child::i")WebElement editButton;
-@FindBy(xpath = "//input[@id='password']")WebElement passwordEditTextBox;
-@FindBy(xpath = "//button[@name='Update']")WebElement updateButton;
-@FindBy(xpath ="//div[@class='alert alert-success alert-dismissible']")WebElement updateAlertBox;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")WebElement statusAlerBox;
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/user/edit?edit=11753&page_ad=1']//child::i")WebElement editButton;
+	@FindBy(xpath = "//input[@id='password']")WebElement passwordEditTextBox;
+	@FindBy(xpath = "//button[@name='Update']")WebElement updateButton;
+	@FindBy(xpath ="//div[@class='alert alert-success alert-dismissible']")WebElement updateAlertBox;
 
 	public AdminUserPage clickOnAdminUserTile()
 	{
@@ -58,7 +58,7 @@ public class AdminUserPage
 		String newUserName =randomUtility.fakerUserName();
 		newUserUserNameField.sendKeys(newUserName);
 		return this;
-		
+
 
 	}
 	public AdminUserPage enterNewUserPassword()
@@ -77,8 +77,8 @@ public class AdminUserPage
 	}
 	public AdminUserPage clickOnSaveButton()
 	{
-		 WaitUtility waitUtility= new WaitUtility();
-		 waitUtility.waitUntilElementToBeClickable(driver, saveButton);
+		WaitUtility waitUtility= new WaitUtility();
+		waitUtility.waitUntilElementToBeClickable(driver, saveButton);
 		saveButton.click();
 		return this;
 	}
@@ -122,13 +122,13 @@ public class AdminUserPage
 	{
 		statusButton.click();
 		return this;
-		
+
 	}
 	public String isAlertforUserStatusChangeDisplayed()
 	{
 		String alerMessage = statusAlerBox.getText();
 		return alerMessage;
-	
+
 	}
 	public AdminUserPage clickOnEditButton() 
 	{
@@ -137,7 +137,7 @@ public class AdminUserPage
 		editButton.click();
 		return this;
 	}
-	
+
 	public AdminUserPage editPassword()
 	{
 		passwordEditTextBox.clear();
@@ -145,7 +145,7 @@ public class AdminUserPage
 		String newPassword = randomUtility.fakerpassword();
 		passwordEditTextBox.sendKeys(newPassword);
 		return this;
-		
+
 	}
 	public AdminUserPage clickOnUpdateButton()
 	{

@@ -1,10 +1,9 @@
 package retry;
 
-import org.apache.logging.log4j.LogManager;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
-
-import freemarker.log.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public  class Retry implements IRetryAnalyzer
 {
