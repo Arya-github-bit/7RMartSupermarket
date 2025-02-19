@@ -7,9 +7,9 @@
 <parameter name="browser" value="Chrome"></parameter>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="testscript.SubCategoryTest">
+      <class name="testscript.LoginTest">
       <methods>
-      <include name="verifyWhetherAdminisableToAddNewSubCategoryOnListSubcategoryPage"></include>
+      <include name="verifyWhetherUserIsAbleLoginSuccessfullywithValidUsernameandValidPassword"></include>
      
       </methods>
       </class>
